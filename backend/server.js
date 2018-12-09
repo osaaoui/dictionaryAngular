@@ -6,9 +6,8 @@ const request = require('request');
 const fs= require('fs');
 const xml2js= require('xml2js');
 const parser= new xml2js.Parser();
-const xmldom= require('xmldom').DOMParser;
-const natural= require('natural');   // the natural library for nlp tasks
-const nounInflector= new natural.NounInflector();
+//const natural= require('natural');   // the natural library for nlp tasks
+//const nounInflector= new natural.NounInflector();
 
 const app= express();
 
@@ -37,7 +36,7 @@ app.get('/api/words', function(req, res) {
   var str;
   console.log("This is the req query name: "+ name);
     //res.json(words);
-    fs.readFile('wordList.xml', 'utf-8', function (err, data){
+    fs.readFile('kabToEng.xml', 'utf-8', function (err, data){
       if(err){
         console.log('error');
         //res.send(err);
@@ -54,7 +53,7 @@ app.get('/api/words', function(req, res) {
           //gr= words[i]['gramGrp'];
   }
 
-        console.log(words);  
+        //console.log(words);  
         res.send(words);
       });
       }

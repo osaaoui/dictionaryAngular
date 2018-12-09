@@ -3,7 +3,7 @@
 <entry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="schema_dico.xsd">
 
-  <form>
+  <!-- <form>
     <orth>axxam</orth>
     <gram>
     <pos>isem</pos>
@@ -57,5 +57,50 @@
     <translation>black person</translation>
     </sense>
     
+  </form> -->
+  <form>
+    <orth>axxam</orth>
+  <gramGrp> <!-- grammatical information -->
+    <pos>isem</pos> <!-- part of speech -->
+    <fem>taxxamt</fem>
+    <pl>ixxamen, tixxamin</pl>
+  </gramGrp>
+  <sense>
+    <translation>
+      <quote>house</quote>
+      <examples>
+        <example>axxam-iw</example>
+        <transExample>my house</transExample>
+      </examples>
+  </translation>
+  </sense>
+  <sense>
+    <translation>
+      <quote>family, household</quote>
+      <examples>
+        <example>at uxxam</example>
+        <transExample>the family</transExample>
+      </examples>
+  </translation>
+  </sense>
   </form>
+
+  <!-- asγaṛ  -->
+        <form>
+        <orth>asγaṛ</orth>
+        <gramGrp> <!-- grammatical information -->
+        <pos>isem</pos> <!-- part of speech -->
+        <fem>tasγaṛt</fem>
+        <pl>isγaṛen, tisγaṛin</pl>
+        </gramGrp>
+        <sense>
+        <translation>
+        <quote>wood</quote>
+        <examples>
+        <example>ṭabla-agi temmug s usγaṛ</example>
+        <transExample>this table is made of wood</transExample>
+        </examples>
+        </translation>
+        </sense>
+        </form>
   </entry>
