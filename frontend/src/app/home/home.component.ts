@@ -58,9 +58,9 @@ export class HomeComponent implements OnInit {
       this.grammar = res[0]['gram'];
       console.log(this.elements);
      // console.log(this.grammar);
-      let pp = this.grammar[0]['pos'];
+      //let pp = this.grammar[0]['pos'];
 
-      this.pos =pp;
+      //this.pos =pp;
      // console.log(this.pos);
       //this.translation= res.find(d => d.spelling === this.spelling);
     })

@@ -65,14 +65,15 @@
 <ng-container *ngFor="let word of elements">
 
   <mat-card>
-      <mat-card-content>  <span> spelling: {{word?.orth}}</span> <br></mat-card-content>
-     <mat-card-content><span> POS: {{word.gram[0].pos}}</span> <br> </mat-card-content>
-     <mat-card-content><span *ngIf="word.gram[0].pos[0]==='isem' || word.gram[0].pos[0]==='adjective'"> 
-        Feminine: {{word.gram[0].fem}}<br>
-        Pural: {{word.gram[0].pl}}
+      <mat-card-title>  <span> spelling:</span> <br></mat-card-title>
+      {{word?.orth}}
+     <mat-card-content><span> POS: {{word.gramGrp[0].pos}}</span> <br> </mat-card-content>
+     <mat-card-content><span *ngIf="word.gramGrp[0].pos[0]==='isem' || word.gramGrp[0].pos[0]==='arbib'"> 
+        Feminine: {{word.gramGrp[0].fem}}<br>
+        Pural: {{word.gramGrp[0].pl}}
     </span> <br> </mat-card-content>
     <ng-container *ngFor="let element of word?.sense">
-            <mat-card-content>Translation: {{element?.translation}}<br></mat-card-content>
+            <mat-card-content>Translation: {{element?.translation[0].quote}}<br></mat-card-content>
             <mat-card-content *ngIf="element?.exemple">exemple: {{element?.exemple}}<br></mat-card-content>
             <mat-card-content *ngIf="element?.transExemple">Translation exemple: {{element?.transExemple}}<br></mat-card-content>
 
@@ -80,6 +81,11 @@
     </mat-card>
     
 </ng-container>
+<div *ngFor="let word of elements">
+  <h1>Spelling</h1>
+  <span>{{word?.orth}}</span>
+</div>
+
   <!--   <mat-card-content><span *ngIf="word.gram[0].pos[0]==='isem' || elements?.gram[0].pos[0]==='adjective'"> 
        FEM: {{word.gram[0].fem}} <br>
       Pural: {{word.gram[0].pl}}

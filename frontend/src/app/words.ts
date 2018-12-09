@@ -4,8 +4,9 @@ export interface Word {
         pos:string;
         fem: string;
         pl: string;
-        past:string;
-        vname: string;
+        quote: string;
+        example: string;
+        transExample: string;
    // }
 
 }
