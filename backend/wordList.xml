@@ -1,0 +1,61 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="schema_dico.xsd">
+
+  <form>
+    <orth>axxam</orth>
+    <gram>
+    <pos>isem</pos>
+    <fem>taxxamt</fem>
+    <pl>ixxamen</pl>
+    </gram>
+    <sense>
+    <translation>house</translation>
+    <exemple>axxam-iw</exemple>
+    <transExemple>my house</transExemple>
+    </sense>
+    <sense>
+     <translation>family</translation>
+    </sense>
+    
+  </form>
+
+  <form>
+    <orth>ddu</orth>
+    <gram>
+    <pos>amyag</pos>
+    <past>yedda</past>
+    <vname>tikli</vname>
+    </gram>
+    <sense>
+    <translation>walk</translation>
+    </sense>
+    
+  </form>
+
+  <form>
+    <orth>aberkan</orth>
+    <gram>
+    <pos>adjective</pos>
+    <fem>taberkant</fem>
+    <pl>iberkanen</pl>
+    </gram>
+    <sense>
+    <translation>black</translation>
+    </sense>
+    
+  </form>
+  <form>
+    <orth>aberkan</orth>
+    <gram>
+    <pos>adj</pos>
+    <fem>taberkant</fem>
+    <pl>iberkanen</pl>
+    </gram>
+    <sense>
+    <translation>black person</translation>
+    </sense>
+    
+  </form>
+  </entry>

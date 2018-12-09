@@ -37,25 +37,25 @@ app.get('/api/words', function(req, res) {
   var str;
   console.log("This is the req query name: "+ name);
     //res.json(words);
-    fs.readFile('kabToEng.xml', 'utf-8', function (err, data){
+    fs.readFile('wordList.xml', 'utf-8', function (err, data){
       if(err){
         console.log('error');
         //res.send(err);
       } else{
         parser.parseString(data, function (err, result) {
 
-        let words = result['entry']['form'];
-        let lexeme;
+        let lexeme, gr, part;;
+        let words = JSON.stringify(result['entry']['form']);
         //console.log(result);
         //console.log(words);
         for (let i = 0; i < words.length; i++){
-          console.log(words.length);
+          //console.log(words.length);
           lexeme= words[i]['orth'];
-          console.log(lexeme);
-          //if(val == lexeme){
+          //gr= words[i]['gramGrp'];
   }
-          //}
-        res.json(lexeme);
+
+        console.log(words);  
+        res.send(words);
       });
       }
 

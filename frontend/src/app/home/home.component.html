@@ -1,26 +1,49 @@
-<h2>My Dictionary</h2>
-<ul class="words">
-<p>Home</p>
-<input type="text" #elem (keyup.enter)="onNameKeyUp(elem.value)"
+<h2>ANELMAD</h2>
+      <div class="example-container">
+          <mat-form-field>
+          <mat-select [(ngModel)]="selected">
+            <mat-option *ngFor="let option of options" [value]="option.id">{{ option.value }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Input" type="text" #elem (keyup.enter)="onNameKeyUp(elem.value)"
       (blur)="onNameKeyUp(elem.value)"
       [(ngModel)]="latinButton"
       (blur)="onNameKeyUp(elem.value)">
-      <button (click)="getWordList()">Add</button>
+      <button mat-button color="primary" (click)="getWordList()">SEARCH</button>
     <br>
-    <div>
-      <button #ec type="submit"  value="č" (click)="getLatin(ec.value)">č</button>
-      <button #ed type="submit"  value="ḍ" (click)="getLatin(ed.value)">ḍ</button>
-      <button #eg type="submit"  value="ğ" (click)="getLatin(eg.value)">ğ</button>
-      <button #eh type="submit"  value="ḥ" (click)="getLatin(eh.value)">ḥ</button>
-      <button #ea type="submit"  value="ԑ" (click)="getLatin(ea.value)">ԑ</button>
-      <button #ek type="submit"  value="γ" (click)="getLatin(ek.value)">γ</button>
-      <button #er type="submit"  value="ṛ" (click)="getLatin(er.value)">ṛ</button>
-      <button #es type="submit"  value="ṣ" (click)="getLatin(es.value)">ṣ</button>
-      <button #et type="submit"  value="ṭ" (click)="getLatin(et.value)">ṭ</button>
-      <button #ez type="submit"  value="ẓ" (click)="getLatin(ez.value)">ẓ</button>
-      <br>
-      Latin button: {{latin}}
-      <br>
+        </mat-form-field>
+        <div>
+          <button #ec type="submit"  value="č" (click)="getLatin(ec.value)">č</button>
+          <button #ed type="submit"  value="ḍ" (click)="getLatin(ed.value)">ḍ</button>
+          <button #eg type="submit"  value="ğ" (click)="getLatin(eg.value)">ğ</button>
+          <button #eh type="submit"  value="ḥ" (click)="getLatin(eh.value)">ḥ</button>
+          <button #ea type="submit"  value="ԑ" (click)="getLatin(ea.value)">ԑ</button>
+          <button #ek type="submit"  value="γ" (click)="getLatin(ek.value)">γ</button>
+          <button #er type="submit"  value="ṛ" (click)="getLatin(er.value)">ṛ</button>
+          <button #es type="submit"  value="ṣ" (click)="getLatin(es.value)">ṣ</button>
+          <button #et type="submit"  value="ṭ" (click)="getLatin(et.value)">ṭ</button>
+          <button #ez type="submit"  value="ẓ" (click)="getLatin(ez.value)">ẓ</button>
+          <br>
+      </div>
+<!-- <h4>Basic native select</h4>
+<mat-form-field>
+  <mat-select matNativeControl required>
+    <mat-option value="English">English-Kabyle</mat-option>
+    <mat-option value="Kabyle">taqbaylit-Tagnizit</mat-option>
+  </mat-select>
+</mat-form-field> 
+<mat-form-field>
+  <mat-select placeholder="Select an option">
+    <mat-option *ngFor="let option of options" [value]="option.value">
+      {{option.value}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+-->
+
+
+  
 
 <!--  <mat-form-field (ngSubmit)='performSearch($event)' color='primary' id='search-input' class='full-width' appearance='outline'>
 <mat-label color='red'>Search</mat-label>
@@ -28,25 +51,54 @@
 </mat-form-field>
 <button mat-raised-button color="primary" (click)='performSearch(searchBar.value)' id='submit-search' type='submit' for='searchBar'>Submit</button>
 -->
-    </div>
-    <p> test words: gar, aman </p>
-    <br>
-    <!-- Test with gar -->
-    <span> spelling: {{translation?.spelling}}</span> <br>
-    <span> category: {{translation?.category}}</span> <br>
-    <span> translation: {{translation?.translation}}</span> <br>
+    <!--
 
-    
+    <ng-container *ngFor="let word of elements">
 
-    <h2>Get Profiles</h2>
-</ul>
-
-<h1>Two Way Data Binding</h1>
-<input type="text" [(ngModel)]="input_data" value=""> <br>
-<button type="button" (click)="react()">č</button>
-<div>
-   Input data: {{ input_data }}
-</div>
+          <mat-card-content>  <span> spelling: {{word?.orth}}</span> <br></mat-card-content>
+         <mat-card-content><span> POS: {{word.gram[0].pos}}</span> <br> </mat-card-content>
       
+    </ng-container>
+
+-->
+
+<ng-container *ngFor="let word of elements">
+
+  <mat-card>
+      <mat-card-content>  <span> spelling: {{word?.orth}}</span> <br></mat-card-content>
+     <mat-card-content><span> POS: {{word.gram[0].pos}}</span> <br> </mat-card-content>
+     <mat-card-content><span *ngIf="word.gram[0].pos[0]==='isem' || word.gram[0].pos[0]==='adjective'"> 
+        Feminine: {{word.gram[0].fem}}<br>
+        Pural: {{word.gram[0].pl}}
+    </span> <br> </mat-card-content>
+    <ng-container *ngFor="let element of word?.sense">
+            <mat-card-content>Translation: {{element?.translation}}<br></mat-card-content>
+            <mat-card-content *ngIf="element?.exemple">exemple: {{element?.exemple}}<br></mat-card-content>
+            <mat-card-content *ngIf="element?.transExemple">Translation exemple: {{element?.transExemple}}<br></mat-card-content>
+
+    </ng-container>
+    </mat-card>
+    
+</ng-container>
+  <!--   <mat-card-content><span *ngIf="word.gram[0].pos[0]==='isem' || elements?.gram[0].pos[0]==='adjective'"> 
+       FEM: {{word.gram[0].fem}} <br>
+      Pural: {{word.gram[0].pl}}
+      </span> <br> </mat-card-content>
+
+      <ng-container *ngFor="let element of elements?.sense">
+        <mat-card-content>Translation: {{element?.translation}}<br></mat-card-content>
+        <mat-card-content *ngIf="element?.exemple">exemple: {{element?.exemple}}<br></mat-card-content>
+        <mat-card-content *ngIf="element?.transExemple">Translation exemple: {{element?.transExemple}}<br></mat-card-content>
+
+
+        <br />
+      </ng-container>
+  </mat-card>
+</ng-container>
+          
+      <span *ngFor="let element of elements?.gram[0] | keyvalue">
+        {{element.key}}: {{element.value}}
+    </span>
+-->
 
     
