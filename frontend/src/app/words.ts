@@ -2,6 +2,7 @@ export interface Word {
     orth:string;
     //gram: {
         pos:string;
+        asuddimIsem: string;
         fem: string;
         pl: string;
         quote: string;

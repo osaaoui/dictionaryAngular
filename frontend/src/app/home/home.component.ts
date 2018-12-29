@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   translation;
   latin='';
   latinButton='';
+  asuddimIsem= "";
   options: Options[] =[
     {id: 1, value: "english-kabyle"},
     {id: 2, value: "taqbaylit-taqnizit"}
@@ -52,9 +53,9 @@ export class HomeComponent implements OnInit {
     }
 
   getWordList(){
-    this.webservice.getWords(this.spelling)
+    this.webservice.getWords(this.spelling, this.selected)
     .subscribe((res: Array<Word>)=> {
-      this.elements = res.filter(d=> d.orth == this.spelling);
+      this.elements = res.filter(d=> d.orth == this.spelling || d.asuddimIsem == this.spelling);
       this.grammar = res[0]['gram'];
       console.log(this.elements);
      // console.log(this.grammar);

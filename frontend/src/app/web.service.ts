@@ -24,12 +24,14 @@ export class WebService {
     //getMessages(): Observable<Word>{
       //return this.http.get(this.url);
     //}
+    
 
-  getWords(name: string):Observable<Word[]>{
+  getWords(name: string, option: any):Observable<Word[]>{
 
     return this.http.get<Word[]>('http://localhost:3000/api/words',{
       params: {
-        name:name
+        name:name,
+        option:option
       }
     }
   

@@ -22,20 +22,42 @@ app.use(function(req, res, next) {
   next();
 });
 
-var wordsArray = [
-  {"spelling": "aman", "category": "noun", "translation": "water"},
-  {"spelling": "azzel", "category": "verb", "translation": "run"},
-  {"spelling": "aberkan", "category": "adjective", "translation": "black"},
-  {"spelling": "gar", "category": "preposition", "translation": "between"},
-  {"spelling": "ečč", "category": "verb", "translation": "eat"}
-  ]
-
 
 app.get('/api/words', function(req, res) {
   var name = req.query.name;
+  var option = req.query.option;
   var str;
   console.log("This is the req query name: "+ name);
-    //res.json(words);
+  console.log("This is the req query option: "+ option);
+
+  if(option == 1){
+    fs.readFile('newWords.xml', 'utf-8', function (err, data){
+      if(err){
+        console.log('error');
+        //res.send(err);
+      } else{
+        parser.parseString(data, function (err, result) {
+
+        let lexeme, gr, part;;
+        //let words = JSON.stringify(result['entry']['form']);
+        let words = result['entry']['form'];
+        //console.log(result);
+        console.log(words);
+        for (let i = 0; i < words.length; i++){
+          //console.log(words.length);
+          lexeme= words[i]['orth'];
+          //gr= words[i]['gramGrp'];
+  }
+
+        //console.log(words);  
+        //res.send(words);
+        res.json(words);
+      });
+      }
+
+  });
+
+  }else {
     fs.readFile('kabToEng.xml', 'utf-8', function (err, data){
       if(err){
         console.log('error');
@@ -44,7 +66,8 @@ app.get('/api/words', function(req, res) {
         parser.parseString(data, function (err, result) {
 
         let lexeme, gr, part;;
-        let words = JSON.stringify(result['entry']['form']);
+       // let words = JSON.stringify(result['entry']['form']);
+        let words = result['entry']['form'];
         //console.log(result);
         //console.log(words);
         for (let i = 0; i < words.length; i++){
@@ -54,24 +77,16 @@ app.get('/api/words', function(req, res) {
   }
 
         //console.log(words);  
-        res.send(words);
+        //res.send(words);
+        res.json(words);
       });
       }
 
   });
+  }
+    //res.json(words);
+    
 });
-  //if (name) {
-    //name = name.toLowerCase();
-    //var results= words.filter(word => {
-      //word.spelling === name;
-    //});
-
-
-    //res.json(results);
-  //console.log(results)
-  //} else //{
-  //  console.log(words);
-  //}
 
 
 
