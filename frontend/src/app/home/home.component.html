@@ -1,170 +1,108 @@
-<div class="jumbotron">
-    <h1 class="display-4">Simple. Elegant. Awesome.</h1>
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-
-    <div class="input-group mt-3 mb-3">
-        <div class="input-group-prepend">
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">English-Kabyle</a>
-                <a class="dropdown-item" href="#">Taqbaylit-Tagnizit</a>
-              </div>
-          <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
-            Dropdown button
-          </button>
-          
-        </div>
-        <input type="text" class="form-control" placeholder="Username">
-      </div>
-</div>
-      <div class="example-container">
-          
-          <mat-form-field>
-          <mat-select [(ngModel)]="selected">
-            <mat-option *ngFor="let option of options" [value]="option.id">{{ option.value }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          
-      <input matInput placeholder="search ..." #elem (keyup)="onNameKeyUp(elem.value)"
-      (blur)="onNameKeyUp(elem.value)"
-      [(ngModel)]="latinButton"
-      (blur)="onNameKeyUp(elem.value)">
-    </mat-form-field>
-      <button mat-button color="primary" (click)="getWordList()">SEARCH</button>
-    <br>
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-          <button class="btn btn-secondary" #ec type="submit"  value='č' (click)="getLatin(ec.value)">č</button>
-          <button class="btn btn-secondary" #ed type="submit"  value='ḍ' (click)="getLatin(ed.value)">ḍ</button>
-          <button class="btn btn-secondary" #eg type="submit"  value='ğ' (click)="getLatin(eg.value)">ğ</button>
-          <button class="btn btn-secondary" #eh type="submit"  value='ḥ' (click)="getLatin(eh.value)">ḥ</button>
-          <button class="btn btn-secondary" #ea type="submit"  value='ԑ' (click)="getLatin(ea.value)">ԑ</button>
-          <button class="btn btn-secondary" #ek type="submit"  value='γ' (click)="getLatin(ek.value)">γ</button>
-          <button class="btn btn-secondary" #er type="submit"  value='ṛ' (click)="getLatin(er.value)">ṛ</button>
-          <button class="btn btn-secondary" #es type="submit"  value='ṣ' (click)="getLatin(es.value)">ṣ</button>
-          <button class="btn btn-secondary" #et type="submit"  value='ṭ' (click)="getLatin(et.value)">ṭ</button>
-          <button class="btn btn-secondary" #ez type="submit"  value='ẓ' (click)="getLatin(ez.value)">ẓ</button>
-          <br>
-        </div>
-      </div>
-  
-
-
-      
-        
-<!-- <h4>Basic native select</h4>
-<mat-form-field>
-  <mat-select matNativeControl required>
-    <mat-option value="English">English-Kabyle</mat-option>
-    <mat-option value="Kabyle">taqbaylit-Tagnizit</mat-option>
-  </mat-select>
-</mat-form-field> 
-<mat-form-field>
-  <mat-select placeholder="Select an option">
-    <mat-option *ngFor="let option of options" [value]="option.value">
-      {{option.value}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
--->
-
-
-  
-
-<!--  <mat-form-field (ngSubmit)='performSearch($event)' color='primary' id='search-input' class='full-width' appearance='outline'>
-<mat-label color='red'>Search</mat-label>
-<input #searchBar matInput  [(ngModel)]='searchValue' name='searchBar' [value]='searchValue' (keyup.enter)='performSearch($event)'>
-</mat-form-field>
-<button mat-raised-button color="primary" (click)='performSearch(searchBar.value)' id='submit-search' type='submit' for='searchBar'>Submit</button>
--->
-    <!--
-
-    <ng-container *ngFor="let word of elements">
-
-          <mat-card-content>  <span> spelling: {{word?.orth}}</span> <br></mat-card-content>
-         <mat-card-content><span> POS: {{word.gram[0].pos}}</span> <br> </mat-card-content>
-      
-    </ng-container>
-
-
-
-<ng-container *ngFor="let word of elements">
-
-  <mat-card>
-      <mat-card-title>  <span> spelling:</span> <br></mat-card-title>
-      {{word?.orth}}
-     <mat-card-content><span> POS: {{word.gramGrp[0].pos}}</span> <br> </mat-card-content>
-     <mat-card-content><span *ngIf="word.gramGrp[0].pos[0]==='isem' || word.gramGrp[0].pos[0]==='arbib'"> 
-        Feminine: {{word.gramGrp[0].fem}}<br>
-        Pural: {{word.gramGrp[0].pl}}
-    </span> <br> </mat-card-content>
-    <ng-container *ngFor="let element of word?.sense">
-            <mat-card-content>Translation: {{element?.translation[0].quote}}<br></mat-card-content>
-            <mat-card-content *ngIf="element?.exemple">exemple: {{element?.exemple}}<br></mat-card-content>
-            <mat-card-content *ngIf="element?.transExemple">Translation exemple: {{element?.transExemple}}<br></mat-card-content>
-
-    </ng-container>
-    </mat-card>
-
-    
-</ng-container> -->
-
-
 <div class="container">
-<div class="row">
-    <div class="col">
-        <div class="card">
-            <div class="card-body text-center">
-                <h5 class="card-title">Card title</h5>
-                <div class="card-text">
-                    <div *ngFor="let word of elements">
-                        <h1>Spelling</h1>
-                        <p>{{word?.orth}}</p>
-                        <p>{{word.gramGrp[0].pos}}</p>
-                        <span *ngIf="word.gramGrp[0].pos[0]==='isem' || word.gramGrp[0].pos[0]==='arbib' || word.gramGrp[0].pos[0]==='amqim' ; else verb"> 
-                          <span *ngIf="word.gramGrp[0].fem">
-                            Feminine: {{word.gramGrp[0].fem}}<br></span>
-                            <span *ngIf="word.gramGrp[0].fem">
-                                Feminine: {{word.gramGrp[0].pl}}<br>
-                            Pural: {{word.gramGrp[0].pl}}
-                          </span>
-                        </span>
-                        <ng-template #verb>
-                            past:{{word.gramGrp[0].pt}}<br>
-                            verbal noun: {{word.gramGrp[0].pp}}
-                        </ng-template>
-                          
-                        <ul *ngFor="let element of word?.sense">
-                            <li>Translation: {{element?.translation[0].quote}}<br><li>
-                            <ul *ngFor="let ex of element?.translation[0].examples">
-                            <li *ngIf="ex?.example">exemple: {{ex?.example}}</li>
-                            <li *ngIf="ex?.transExample">Translation exemple: {{ex?.transExample}}</li>
-                            
-                            </ul>
-                            <div class="expression" *ngIf="element?.expression">
-                                <div *ngFor="let exp of element?.expression">
-                                  <span>{{exp?.quote}}</span><br>
-                                  <span>{{exp?.transExample}}</span>
-                                </div>
-                              </div>
-                          </ul>
-                          <!--
-                          <div *ngIf="word?.expression">
-                            Tinfaliyin
-                              <div *ngFor="let exp of element?.expression">
-                                <span>{{exp?.quote}}</span>
-                                <span>{{exp?.transExample}}</span>
-                              </div>
-                            </div>-->
-                      </div>
+<div class="jumbotron">
+            <span class="text-center">Asegzawal n Unelmad | Learner's Dictionary</span>
+<fieldset class="form-group">
+    <div class="input-group col-md-10">
+        
+        <select class="form-control col-md-4" [(ngModel)]="selected">
+            
+            <option *ngFor="let option of options" [value]="option.id">{{ option.value }}</option>
+        </select>
 
-                </div>
-                <a href="#" class="card-link">Another link</a>
-            </div>
+        <input type="text" class="form-control" #elem (keyup)="onNameKeyUp(elem.value)"
+        (blur)="onNameKeyUp(elem.value)"
+        [(ngModel)]="latinButton"
+        placeholder="Enter"/>
+        <span class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="getWordList()">
+                <i class="fa fa-search"></i>
+            </button>
+          </span>
+        
+    
         </div>
+      </fieldset>
+
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group flex-wrap mr-2" role="group" aria-label="First group">
+              <button class="btn btn-secondary" #ec type="submit"  value='č' (click)="getLatin(ec.value)">č</button>
+              <button class="btn btn-secondary" #ed type="submit"  value='ḍ' (click)="getLatin(ed.value)">ḍ</button>
+              <button class="btn btn-secondary" #eg type="submit"  value='ğ' (click)="getLatin(eg.value)">ğ</button>
+              <button class="btn btn-secondary" #eh type="submit"  value='ḥ' (click)="getLatin(eh.value)">ḥ</button>
+              <button class="btn btn-secondary" #ea type="submit"  value='ԑ' (click)="getLatin(ea.value)">ԑ</button>
+              <button class="btn btn-secondary" #ek type="submit"  value='γ' (click)="getLatin(ek.value)">γ</button>
+              <button class="btn btn-secondary" #er type="submit"  value='ṛ' (click)="getLatin(er.value)">ṛ</button>
+              <button class="btn btn-secondary" #es type="submit"  value='ṣ' (click)="getLatin(es.value)">ṣ</button>
+              <button class="btn btn-secondary" #et type="submit"  value='ṭ' (click)="getLatin(et.value)">ṭ</button>
+              <button class="btn btn-secondary" #ez type="submit"  value='ẓ' (click)="getLatin(ez.value)">ẓ</button>
+              <br>
+            </div>
+          </div>    
+            
+</div>
+
+<div class="row">
+        <div class="col-lg-12">
+                <div class="dictionary">
+                        
+                        <div *ngFor="let word of elements">
+                                <div class="content-box-header">
+                                <h2 id="orth"><strong>{{word?.orth}}</strong></h2>
+                                    <span>{{word.gramGrp[0].pos}}
+                                            <span *ngIf="word.gramGrp[0].pos[0]==='isem' || word.gramGrp[0].pos[0]==='arbib' || word.gramGrp[0].pos[0]==='amqim' ; else verb"> 
+                                                    <span *ngIf="(word.gramGrp[0].fem) && (word.gramGrp[0].pl); else plur">
+                                                      (<i>feminine</i>: <strong>{{word.gramGrp[0].fem}}</strong>
+                                                     <i id="fem">plural</i>: <strong>{{word.gramGrp[0].pl}}</strong>)
+                                                    </span>
+                                            </span>
+                                            <ng-template #plur>
+                                                    <span *ngIf="word.gramGrp[0].pl">
+                                                    (<i>plural</i>: <strong>{{word.gramGrp[0].pl}}</strong>)
+                                                   </span>
+
+                                                    <span *ngIf="word.gramGrp[0].fem">
+                                                        (<i>feminine</i>: <strong>{{word.gramGrp[0].fem}}</strong>)
+                                                       </span>
+                                            </ng-template>
+                                    
+                                    </span>
+                                
+                                
+                                <ng-template #verb>
+                                    past:{{word.gramGrp[0].pt}}<br>
+                                    verbal noun: {{word.gramGrp[0].pp}}
+                                </ng-template>
+                                </div>
+                                <hr>
+                                <div class="meanings">   
+                                <ul *ngFor="let element of word?.sense">
+                                    <li id="engTrans">Translation: {{element?.translation[0].quote}}<br><li>
+                                    <ul *ngFor="let ex of element?.translation[0].examples">
+                                        <div class="example_sentences_block">
+                                    <li *ngIf="ex?.example">exemple: {{ex?.example}}</li>
+                                    <li id="exTrans" *ngIf="ex?.transExample">Translation exemple: {{ex?.transExample}}</li>
+                                          </div>
+                                    </ul>
+                                    <div class="expression" *ngIf="element?.expression">
+                                        <div *ngFor="let exp of element?.expression">
+                                          <span>{{exp?.quote}}</span><br>
+                                          <span>{{exp?.transExample}}</span>
+                                        </div>
+                                      </div>
+                                  </ul>
+                                  <!--
+                                  <div *ngIf="word?.expression">
+                                    Tinfaliyin
+                                      <div *ngFor="let exp of element?.expression">
+                                        <span>{{exp?.quote}}</span>
+                                        <span>{{exp?.transExample}}</span>
+                                      </div>
+                                    </div>-->
+                              </div>
+                            </div>
+    
+    </div>
     </div>
 </div>
 </div>
-
-
     

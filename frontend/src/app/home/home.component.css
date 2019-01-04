@@ -1,12 +1,285 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-  }
+.dictionary{
+  margin-bottom: 1em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  border: 0
+}
+
+.content-box-header{
+background: #e5ebf3;
+padding: 10px 15px;
+margin: 0 -15px 1em -15px;
+}
+.meanings{
+display: block;
+margin-left: 1.5em;
+margin-bottom: .5em;
+margin-top: .5em;
+}
+
+.example_sentences_block{
+  font-size: 100%;
+  margin-left: 0;
+  display: block;
+}
+
+.example_sentence{
+  font-size: 80%;
+  font-weight: bold;
+}
+
+.idiom{
+  color: #234b9a;
+  font-weight: bold;
+}
+
+.title_idioms{
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+
+.examples_idioms{
+  margin-bottom: 20px;
+  padding-left: 60px;
+}
+#titleHead{
+  text-align: center;
+}
+
+#orthSpelling{
+  line-height: 90%;
+}
+#searchbox{
+  text-align: left;
+  width:150px;
+  height: 40px;
+  font-size:1.5em;
+  border-radius:5px;
+}
+ .nav-item{
+  background: #333;
+  color:#fff;
+}
+.btn-primary{
+  background:#f4a341;
+  color: #333;
+}
+#engExample{
+  color:#333;
+  font-weight: normal;
+}
+#engTrans{
+  color:#0096ab;
+  font-size: 20px;
+  font-weight: bold;
+}
+#exTrans{
+  color:#0096ab;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 10px;
+}
+
+#arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+
+  border-left: 10px solid green;
+}
+
+
+.idiom-head::before{
+     content:"";
+     margin-right: 10px;
+     font-weight: bold;
+     border: solid blue;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+}
+
+#exprExample{
+  color: #234b9a;
+}
+
+#thebuttons{
+  padding-right: 130px;
+  text-align: center;
+  color:#0096ab;
+}
+.btnLatin{
+  background:#f4a341;
+  color: #333;
+}
+/*a {
+  color: #00B7FF;
+}
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+ }
+
+ table {
+  border-collapse: collapse;
+  width: 100%;
+ }
+
+th, td {
+  padding: 15px;
+  }*/
+p{
+  font: normal normal 16px/1.4 Arial;
+}
+/*p.item {
+  color: black;
+}*/
+li{
+
+  font-size: 25px;
+}
+p.trans{
+  color: blue;
+}*/
+#theSpelling{
+  color: green;
+}
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 3px;
+    color: blue;
+}
+/* li#trad{
+      /*background: none repeat scroll 0 0 #7fad1c;
+      /*border-radius: 500px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: bold;
+      height: 23px;
+      left: 0;
+      line-height: 23px;
+      position: absolute;
+      text-align: center;
+      top: 15px;
+      width: 23px;
+}*/
+
+/* aside */
+.pquote {
+			float: right;
+			width: 600px;
+			background: url(/examples/images/openquote.gif) top left no-repeat;
+			color: #030;
+			font-size: 30px;
+			line-height: 0.9;
+			font-style: italic;
+			padding: 13px;
+		}
+		blockquote {
+			margin: 0;
+		}
+		.pquote p:first-letter {
+			font-size: 39px;
+			font-weight: bold;
+		}
+
+    .example-container {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .example-container > * {
+      width: 50%;
+    }
   
-  .example-container > * {
-    width: 50%;
+    .expression{
+    }
+  
+  
+  
+  .btn-toolbar{
+    padding-left: 2%;
   }
 
-  .expression{
+  .main-content{
+    padding:0;
+    background-position: calc(100% - 34px) calc(50px);
+    background-repeat: no-repeat;
+    background-size: 340px;
+    display: block;
+    padding-top: 25px;
+
+    padding: 20px 0;
+    padding-top: 0;
+    margin: 0 auto;
+    width: calc(100% - 50px - 50px);
+
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #100d08;
+    color: #fff;
+    background-size: cover;
+    background-position: center center;
+}
+
+  .search-form{
+    display:block;
+    width:850px;
+    border-radius:3px
+    ;position:relative;
+    text-align:left;
+    display:inline-block;
+    color:#000;
+    background:#fff;
+    margin-top:3px;
+
+    padding:.3em;
+    line-height:1.5em;
+
+    cursor:pointer;
+    border:0;
+    background:#e6e6e6;
+    border-top-left-radius:3px;
+    border-bottom-left-radius:3px;
+    display:inline-block;
+    padding:.5em;
+
+
   }
-  
+.language-options{
+  float: left;
+  width: 20rem;
+  cursor: pointer;
+  border: 0;
+  background: #e6e6e6;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  vertical-align: middle;
+  line-height: 1.5em;
+}
+
+input{
+  width: 80px;
+}
+
+#orth{
+  font-size: 30px;
+}
+
+#fem{
+  margin-left: 10px;
+}
