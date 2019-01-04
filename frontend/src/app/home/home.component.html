@@ -48,20 +48,20 @@
                         <div *ngFor="let word of elements">
                                 <div class="content-box-header">
                                 <h2 id="orth"><strong>{{word?.orth}}</strong></h2>
-                                    <span>{{word.gramGrp[0].pos}}
+                                    <span><i>{{word.gramGrp[0].pos}}</i>
                                             <span *ngIf="word.gramGrp[0].pos[0]==='isem' || word.gramGrp[0].pos[0]==='arbib' || word.gramGrp[0].pos[0]==='amqim' ; else verb"> 
                                                     <span *ngIf="(word.gramGrp[0].fem) && (word.gramGrp[0].pl); else plur">
-                                                      (<i>feminine</i>: <strong>{{word.gramGrp[0].fem}}</strong>
-                                                     <i id="fem">plural</i>: <strong>{{word.gramGrp[0].pl}}</strong>)
+                                                      (<i>unti</i>: <strong>{{word.gramGrp[0].fem}}</strong>
+                                                     <i id="fem">asget</i>: <strong>{{word.gramGrp[0].pl}}</strong>)
                                                     </span>
                                             </span>
                                             <ng-template #plur>
                                                     <span *ngIf="word.gramGrp[0].pl">
-                                                    (<i>plural</i>: <strong>{{word.gramGrp[0].pl}}</strong>)
+                                                    (<i>asget</i>: <strong>{{word.gramGrp[0].pl}}</strong>)
                                                    </span>
 
                                                     <span *ngIf="word.gramGrp[0].fem">
-                                                        (<i>feminine</i>: <strong>{{word.gramGrp[0].fem}}</strong>)
+                                                        (<i>unti</i>: <strong>{{word.gramGrp[0].fem}}</strong>)
                                                        </span>
                                             </ng-template>
                                     
@@ -69,24 +69,32 @@
                                 
                                 
                                 <ng-template #verb>
-                                    past:{{word.gramGrp[0].pt}}<br>
-                                    verbal noun: {{word.gramGrp[0].pp}}
+                                    (<strong>{{word.gramGrp[0].pt}}</strong>, <strong>{{word.gramGrp[0].pp}}</strong>)
                                 </ng-template>
                                 </div>
                                 <hr>
+
                                 <div class="meanings">   
-                                <ul *ngFor="let element of word?.sense">
-                                    <li id="engTrans">Translation: {{element?.translation[0].quote}}<br><li>
-                                    <ul *ngFor="let ex of element?.translation[0].examples">
+                                <ul type="1" *ngFor="let element of word?.sense">
+                                    <li><span id="engTrans">{{element?.translation[0].quote}}</span><br></li>
+                                    <div *ngFor="let ex of element?.translation[0].examples">
                                         <div class="example_sentences_block">
-                                    <li *ngIf="ex?.example">exemple: {{ex?.example}}</li>
-                                    <li id="exTrans" *ngIf="ex?.transExample">Translation exemple: {{ex?.transExample}}</li>
+                                    <div *ngIf="ex?.example">
+                                        {{ex?.example}}: <span id="exTrans" *ngIf="ex?.transExample">{{ex?.transExample}}</span>
+                                    </div>
+                                    
                                           </div>
-                                    </ul>
+                                        </div>
+                                    <br>
                                     <div class="expression" *ngIf="element?.expression">
+                                    <h4 class="idiom"> Expressions: Tinfaliyin</h4>
                                         <div *ngFor="let exp of element?.expression">
-                                          <span>{{exp?.quote}}</span><br>
-                                          <span>{{exp?.transExample}}</span>
+                                        <div class="title_idioms">
+                                          <span class="idiom-head">{{exp?.quote}}</span><br>
+                                          <div class="examples_idioms">
+                                          <span id="exTrans">{{exp?.transExample}}</span>
+                                          </div>
+                                        </div>
                                         </div>
                                       </div>
                                   </ul>
@@ -98,6 +106,18 @@
                                         <span>{{exp?.transExample}}</span>
                                       </div>
                                     </div>-->
+                                <div *ngIf="word?.usage">
+                                        <div id="main_content">
+                                                <!-- All about Tixall -->
+                                                <aside class="pquote">
+                                                <h4>Grammar : Tajerrumt</h4>
+                                                <blockquote>
+                                                    <p><strong>{{word?.usage[0].item}}</strong> vs <strong>{{word?.usage[0].syn}}</strong></p>
+                                                </blockquote>
+                                                </aside>
+                                                <!-- A bit more about Tixall -->
+                                            </div>
+                                </div>
                               </div>
                             </div>
     
