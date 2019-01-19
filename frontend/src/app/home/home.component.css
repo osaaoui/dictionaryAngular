@@ -1,3 +1,54 @@
+.jumbotron{
+ background-color: #0069b3;
+  color: #fff;
+}
+
+.jumbotron {
+  border-radius: 0 !important;
+}
+
+.drapeaux{
+  display: inline-block;
+  margin-right:40px;
+  margin-bottom: 10px;
+}
+
+.drapTexte{
+  margin-left:15px;
+}
+
+.arrows{
+  margin-right:40px;
+  display: inline-block;
+}
+
+/* xs */
+img {
+  width: 100px;
+  height: 70px;;
+}
+/* sm */
+@media (min-width: 768px) {
+  img {
+      width: 150px;
+  }
+}
+/* md */
+@media (min-width: 992px) {
+  img {
+      width: 200px;
+  }
+}
+/* lg */
+@media (min-width: 1200px) {
+  img {
+      width: 100px;
+  }
+}
+
+.fa{
+    color: #000;
+}
 .dictionary{
   margin-bottom: 1em;
   word-wrap: break-word;
@@ -276,7 +327,7 @@ input{
   width: 80px;
 }
 
-#orth{
+.orth{
   font-size: 30px;
 }
 
